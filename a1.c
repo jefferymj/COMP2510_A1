@@ -47,33 +47,47 @@ int main(int argc, charargv[]) {
 
     // The length of each line (Techincally the ammount of columns in the array)
     int lineWidth = atoi(argv[2]);
+    
+    // Point to position in memory ? At this point in the program, size is not known. 
+    char *arr;
+
+    // 2D matrix
+    char **matrix;
 
     //Read in the input file 
     FILE *file = fopen(inputFileName, "r");
-        if (file -- NULL) {
+        if (file == NULL) {
             printf("Failed to open input file.\n");
             return 1; 
     }
 
-    while ()
+    //Move pointer to the end
+    fseek(file, 0, SEEK_END);
 
+    //File size can be determined as ftell returns how the size in bytes from the beginning to the end of the file 
+    long file_size = ftell(file);
 
-    char **matrix = (char **) malloc()
+    //Move pointer to start so we can iterate through the text file
+    fseek(file, 0, SEEK_START);
 
+    // Allocate memory for the input txt file 
+    arr = (char *) malloc(file_size * sizeof(char *));
 
+    printf("%p", arr);
 
-
+    // Allocate memory for 2D array 
+    //char **matrix = (char **) malloc( * sizeof(char *));
 
     // A numbers of everyone. AXXXX_AXXXX_AXXX format.
-    char *ANum = "A00992793_A01282281_A01357857"; 
+    //char *ANum = "A00992793_A01282281_A01357857"; 
 
-    FILE *outputFile = fopen(ANum, "w");
+//     FILE *outputFile = fopen(ANum, "w");
 
-    if (outputFile == NULL) {
-        printf("Failed to create the output file.\n");
-        return 1;
-    }
+//     if (outputFile == NULL) {
+//         printf("Failed to create the output file.\n");
+//         return 1;
+//     }
 
-    fclose(outputFile);
-     return 0;
-}
+//     fclose(outputFile);
+//      return 0;
+// }
